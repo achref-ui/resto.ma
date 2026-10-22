@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم مغربي - مذاق الأصالة بتصميم عصري</title>
+    <!-- Google Fonts: Poppins for English & Tajawal for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="container">
+            <div class="logo">مذاق<span>المغرب</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#menu">القائمة</a></li>
+                <li><a href="#about">عن المطعم</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <h1>تجربة طعام مغربية <br><span>بلمسة عصرية</span></h1>
+            <p>نقدم لكم أرقى الأطباق المغربية التقليدية بأسلوب حديث يجمع بين الأصالة والحداثة.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn btn-primary">اكتشف القائمة</a>
+                <a href="#contact" class="btn btn-secondary">احجز طاولة</a>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section container">
+        <div class="section-title">
+            <h2>قائمة الطعام المختارة</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="menu-grid">
+            <!-- Main Dishes Category Title -->
+            <div class="category-title">
+                <h3>الأطباق الرئيسية</h3>
+            </div>
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1541518763669-27f71462a48a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="item-info">
+                    <h3>طاجين اللحم بالبرقوق</h3>
+                    <p>لحم طري مطهو ببطء مع البرقوق المعسل واللوز المحمص.</p>
+                    <span class="price">85 درهم</span>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="item-info">
+                    <h3>كسكس بسبع خضار</h3>
+                    <p>الكسكس المغربي التقليدي مع خضار الموسم الطازجة.</p>
+                    <span class="price">75 درهم</span>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="menu-item">
+                <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="item-info">
+                    <h3>بسطيلة الدجاج</h3>
+                    <p>مزيج رائع بين الملوحة والحلاوة مع القرفة واللوز.</p>
+                    <span class="price">95 درهم</span>
+                </div>
+            </div>
+
+            <!-- Drinks & Snacks Category Title -->
+            <div class="category-title">
+                <h3>المشروبات والوجبات الخفيفة</h3>
+            </div>
+            <!-- Item 4 -->
+            <div class="menu-item">
+                <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="item-info">
+                    <h3>شاي مغربي منعنع</h3>
+                    <p>الشاي الأخضر المغربي التقليدي مع النعناع الطازج.</p>
+                    <span class="price">15 درهم</span>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="menu-item">
+                <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1621841957884-1210fe19d66d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="item-info">
+                    <h3>حلويات مغربية مشكلة</h3>
+                    <p>مجموعة مختارة من الحلويات التقليدية (كعب الغزال، غريبة).</p>
+                    <span class="price">25 درهم</span>
+                </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="menu-item">
+                <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1613478223719-2ab802602423?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="item-info">
+                    <h3>عصير برتقال طازج</h3>
+                    <p>برتقال طبيعي معصور عند الطلب.</p>
+                    <span class="price">20 درهم</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container flex">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1553527922-767df645c5f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurant Interior">
+            </div>
+            <div class="about-content">
+                <h2>قصتنا</h2>
+                <p>بدأنا شغفنا من قلب مراكش، لتقديم تجربة طعام لا تُنسى. نحن نؤمن بأن الطعام هو لغة تتخطى الحدود، ولذلك دمجنا أسرار المطبخ المغربي القديم مع تقنيات الطهي العالمية الحديثة.</p>
+                <a href="#" class="btn btn-primary">اقرأ المزيد</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section container">
+        <div class="section-title">
+            <h2>اتصل بنا</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>شارع محمد الخامس، الدار البيضاء، المغرب</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+212 522 00 00 00</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@madaq-almaghrib.com</p>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="الاسم الكامل" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <textarea placeholder="رسالتك" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">إرسال</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">مذاق<span>المغرب</span></div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2026 مذاق المغرب. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

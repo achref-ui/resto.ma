@@ -1,82 +1,60 @@
-// Mobile Menu Toggle
-const hamburger = document.querySelector('.hamburger');
+const menuButton = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const header = document.querySelector('.site-header');
 
-if (hamburger) {
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        // Simple animation for hamburger can be added here
+function setMenuOpen(isOpen) {
+    if (!menuButton || !navLinks) return;
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'إغلاق القائمة' : 'فتح القائمة');
+    navLinks.classList.toggle('is-open', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+}
+
+if (menuButton && navLinks) {
+    menuButton.addEventListener('click', () => {
+        setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+    });
+
+    navLinks.addEventListener('click', event => {
+        if (event.target instanceof Element && event.target.closest('a')) {
+            setMenuOpen(false);
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') setMenuOpen(false);
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 700) setMenuOpen(false);
     });
 }
 
-// Mobile styles for active menu
-const style = document.createElement('style');
-style.textContent = `
-    @media (max-width: 768px) {
-        .nav-links.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-            z-index: 999;
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// Smooth Scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 80,
-                behavior: 'smooth'
-            });
-            // Close mobile menu if open
-            navLinks.classList.remove('active');
-        }
-    });
-});
-
-// Scroll Reveal Animation
-const revealElements = document.querySelectorAll('.menu-item, .about-content, .about-img, .contact-wrapper');
-
-const revealCallback = (entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-        }
-    });
+const updateHeader = () => {
+    header?.classList.toggle('is-scrolled', window.scrollY > 12);
 };
 
-const revealObserver = new IntersectionObserver(revealCallback, {
-    threshold: 0.1
-});
+updateHeader();
+window.addEventListener('scroll', updateHeader, { passive: true });
 
-revealElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s ease-out';
-    revealObserver.observe(el);
-});
+const revealElements = document.querySelectorAll(
+    '.highlight-card, .menu-item, .about-photo, .about-content, .review-card, .contact-panel'
+);
 
-// Sticky Header Effect
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.style.padding = '10px 0';
-        header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-    } else {
-        header.style.padding = '0';
-        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    }
-});
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(element => {
+        element.classList.add('js-reveal');
+        revealObserver.observe(element);
+    });
+} else {
+    revealElements.forEach(element => element.classList.add('is-visible'));
+}
